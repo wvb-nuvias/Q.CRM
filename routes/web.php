@@ -2,6 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Livewire\Pages\Contacts;
+use App\Livewire\Pages\Customers;
+use App\Livewire\Pages\Dashboard;
+use App\Livewire\Pages\Products;
+use App\Livewire\Pages\Subscriptions;
+
+use App\Livewire\Pages\Helpcenter;
+use App\Livewire\Pages\Incidents;
+use App\Livewire\Pages\Kb;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,29 +37,15 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-    Route::get('/customers', function () {
-        return view('customers');
-    })->name('customers');
-    Route::get('/contacts', function () {
-        return view('contacts');
-    })->name('contacts');
-    Route::get('/products', function () {
-        return view('products');
-    })->name('products');
-    Route::get('/subscriptions', function () {
-        return view('subscriptions');
-    })->name('subscriptions');
-    Route::get('/incidents', function () {
-        return view('incidents');
-    })->name('incidents');
-    Route::get('/kb', function () {
-        return view('kb');
-    })->name('kb');
-    Route::get('/helpcenter', function () {
-        return view('helpcenter');
-    })->name('helpcenter');
+])->group(function () {    
+    Route::get('/contacts',Contacts::class)->name('contacts');
+    Route::get('/customers',Customers::class)->name('customers');    
+    Route::get('/dashboard',Dashboard::class)->name('dashboard');
+    Route::get('/products',Products::class)->name('products');
+    Route::get('/subscriptions',Subscriptions::class)->name('subscriptions');
+    
+    Route::get('/helpcenter',Helpcenter::class)->name('helpcenter');
+    Route::get('/incidents',Incidents::class)->name('incidents');
+    Route::get('/kb',Kb::class)->name('kb');
+    
 });
