@@ -35,5 +35,8 @@ return [
     'helpcenter'        => 'Help',
     'helpcentertext'    => 'Hier kan je hulp vragen, artikels lezen en de knowledge base raadplegen.',
     'nohelpcenter'      => 'Geen artikels gevonden.',
+    'kb'                => 'Kenniscentrum',
+    'kbtext'            => 'Het kenniscentrum bevat interessante artikels.',
+    'nokb'              => 'Het kenniscentrum is huidig nog leeg.',
     'changelanguage'    => 'Wijzig Taal',
 ];

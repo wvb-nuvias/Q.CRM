@@ -40,13 +40,7 @@
                         {{ __('messages.subscriptions') }}
                     </x-nav-link>
                 </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('incidents') }}" :active="request()->routeIs('incidents')">
-                        {{ __('messages.incidents') }}
-                    </x-nav-link>
-                </div>
-
+                
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('helpcenter') }}" :active="request()->routeIs('helpcenter')">
                         {{ __('messages.helpcenter') }}

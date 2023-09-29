@@ -46,6 +46,9 @@ Route::middleware([
     Route::get('/incidents', function () {
         return view('incidents');
     })->name('incidents');
+    Route::get('/kb', function () {
+        return view('kb');
+    })->name('kb');
     Route::get('/helpcenter', function () {
         return view('helpcenter');
     })->name('helpcenter');

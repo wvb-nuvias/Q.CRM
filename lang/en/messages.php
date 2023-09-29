@@ -35,6 +35,9 @@ return [
     'helpcenter'        => 'Help',
     'helpcentertext'    => 'You can find help and knowledge base here.',
     'nohelpcenter'      => 'Currently you have no articles.',
+    'kb'                => 'Knowledge Base',
+    'kbtext'            => 'This is an overview of the knowledge base',
+    'nokb'              => 'Currently the knowledge base is empty.',
     'changelanguage'    => 'Change Language',    
     
 ];
