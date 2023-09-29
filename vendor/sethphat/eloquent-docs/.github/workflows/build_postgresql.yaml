@@ -1,0 +1,47 @@
+name: Build and test [PostgreSQL]
+on:
+  pull_request:
+    branches:
+      - 'main'
+    types: [ opened, synchronize, reopened, ready_for_review ]
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      postgresql:
+        image: postgres:14
+        env:
+          POSTGRES_DB: eloquentdocs
+          POSTGRES_USER: root
+          POSTGRES_PASSWORD: root
+        ports:
+          - 5432:5432
+        options: --health-cmd=pg_isready --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      -   uses: actions/checkout@v2
+          if: success()
+
+      -   name: Setup PHP with coverage driver
+          uses: shivammathur/setup-php@v2
+          with:
+            php-version: '8.1'
+            extensions: pdo, pdo_pgsql
+            coverage: none
+
+      -   name: Setup
+          if: success()
+          run: |
+            php -v
+            composer install --no-interaction
+            touch coverage.xml
+            mv .env.postgresql .env
+
+      -   name: PHPUnit tests
+          if: success()
+          run: |
+            composer test
