@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\AddressType;
+
 /**
  * Table: addresses
 *
@@ -30,4 +32,12 @@ class Address extends Model
      * @var array
      */
     protected $fillable = ['created_at', 'updated_at', 'address_type_id', 'ordinal', 'street', 'number', 'appartement', 'postal', 'city', 'region', 'country'];
+
+    /**
+     * Get the addresstype for this address.
+     */
+    public function addresstype(): HasOne 
+    {
+        return $this->HasOne(AddressType::class);
+    }
 }

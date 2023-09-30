@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Address;
+
 /**
  * Table: address_types
 *
@@ -22,4 +24,12 @@ class AddressType extends Model
      * @var array
      */
     protected $fillable = ['created_at', 'updated_at', 'name'];
+
+    /**
+     * Get the addresses that have this addresstype.
+     */
+    public function addresses(): BelongsTo
+    {
+        return $this->belongsTo(Address::class);
+    }
 }
