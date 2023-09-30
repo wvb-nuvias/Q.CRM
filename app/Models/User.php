@@ -11,6 +11,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
 use App\Models\Role;
+use App\Models\Organisation;
 
 /**
  * Table: users
@@ -29,6 +30,7 @@ use App\Models\Role;
  * @property \Carbon\Carbon|null $updated_at
  * @property string $theme
  * @property int $role_id
+ * @property int $organisation_id
 *
 * === Relationships ===
  * @property-read \Laravel\Sanctum\PersonalAccessToken|null $tokens
@@ -92,5 +94,13 @@ class User extends Authenticatable
     public function role(): HasOne 
     {
         return $this->HasOne(Role::class);
+    }
+
+    /**
+     * Get the organisation of this user.
+     */
+    public function organisation(): BelongsTo 
+    {
+        return $this->BelongsTo(Organisation::class);
     }
 }
