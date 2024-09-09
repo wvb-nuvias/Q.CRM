@@ -15,15 +15,14 @@ return new class extends Migration
         Schema::create('tenants', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email');
-            $table->int('organization_id');
-            $table->int('contact_id');
+            $table->string('email');            
+            $table->int('user_id');
             $table->timestamps();
         });
 
         DB::table('tenants')->insert(
-            ['name' => 'Q Continuum', 'email' => 'info@qcontinuum.be', 'organization_id' => 1, 'contact_id' => 1],
-            ['name' => 'Q Continuum Demo', 'email' => 'info@qcontinuum.be', 'organization_id' => 1, 'contact_id' => 1]
+            ['name' => 'Q Continuum', 'email' => 'info@qcontinuum.be', 'user_id' => 1],
+            ['name' => 'Q Continuum Demo', 'email' => 'info@qcontinuum.be', 'user_id' => 1]
         );
     }
 

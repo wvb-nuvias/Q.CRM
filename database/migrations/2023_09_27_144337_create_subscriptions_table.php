@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer('tenant_id');                  
             $table->integer('subscription_type_id')->nullable();
+            $table->integer('customer_id');     //end-customer
+            $table->integer('organization_id'); //partner/reseller
             $table->string('code',20)->nullable();
             $table->string('name',100)->nullable();
             $table->text('description')->nullable();
