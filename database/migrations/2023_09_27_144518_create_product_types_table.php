@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -13,15 +14,17 @@ return new class extends Migration
     {
         Schema::create('product_types', function (Blueprint $table) {
             $table->id();
+            $table->integer('tenant_id')->nullable();             
+            $table->string('name',100)->nullable();            
             $table->timestamps();
-            $table->string('name',100)->nullable();
-            $table->integer('brand_id')->nullable();
         });
 
         DB::table('product_types')->insert([
             ['name' => 'Service'],
             ['name' => 'Development'],            
-            ['name' => 'Device'],            
+            ['name' => 'Analysis'],
+            ['name' => 'Device'],
+            ['name' => '3D printing'],
         ]);
     }
 

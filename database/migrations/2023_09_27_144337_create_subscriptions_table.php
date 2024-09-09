@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('tenant_id');                  
             $table->integer('subscription_type_id')->nullable();
             $table->string('code',20)->nullable();
             $table->string('name',100)->nullable();
@@ -22,6 +22,7 @@ return new class extends Migration
             $table->float('cost', 8, 2)->nullable();
             $table->timestamp('subscriptionstart')->nullable();
             $table->timestamp('subscriptionend')->nullable();
+            $table->timestamps();
         });
     }
 

@@ -12,17 +12,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('address_types', function (Blueprint $table) {
+        Schema::create('link_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenant_id')->nullable();            
-            $table->string('name',100)->nullable();            
+            $table->integer('tenant_id')->nullable();
+            $table->string('name', 100)->nullable();
             $table->timestamps();
         });
 
-        DB::table('address_types')->insert([
-            ['name' => 'Home'],
-            ['name' => 'Work'],            
-        ]);
+        DB::table('link_types')->insert(
+            ['name' => 'Web Page']
+        );
     }
 
     /**
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('address_types');
+        Schema::dropIfExists('link_types');
     }
 };

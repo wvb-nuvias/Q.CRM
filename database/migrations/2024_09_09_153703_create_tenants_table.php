@@ -21,12 +21,10 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        DB::table('tenants')->insert([
-            'name' => 'Q Continuum',
-            'email' => 'info@qcontinuum.be',
-            'organization_id' => 1,
-            'contact_id' => 1,
-        ]);
+        DB::table('tenants')->insert(
+            ['name' => 'Q Continuum', 'email' => 'info@qcontinuum.be', 'organization_id' => 1, 'contact_id' => 1],
+            ['name' => 'Q Continuum Demo', 'email' => 'info@qcontinuum.be', 'organization_id' => 1, 'contact_id' => 1]
+        );
     }
 
     /**

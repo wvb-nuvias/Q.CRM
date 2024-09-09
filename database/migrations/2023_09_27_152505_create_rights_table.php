@@ -14,8 +14,9 @@ return new class extends Migration
     {
         Schema::create('rights', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('tenant_id')->nullable();            
             $table->string('name',100)->nullable();
+            $table->timestamps();
         });
         
         DB::table('rights')->insert([

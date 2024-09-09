@@ -14,8 +14,9 @@ return new class extends Migration
     {
         Schema::create('contact_types', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->string('name',100)->nullable();            
+            $table->integer('tenant_id')->nullable();            
+            $table->string('name',100)->nullable();  
+            $table->timestamps();          
         });
 
         DB::table('contact_types')->insert([

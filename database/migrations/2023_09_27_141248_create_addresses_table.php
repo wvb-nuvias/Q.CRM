@@ -13,8 +13,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('addresses', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id();            
+            $table->integer('tenant_id');
             $table->integer('address_type_id')->nullable();
             $table->integer('ordinal')->nullable();
             $table->string('street',150)->nullable();
@@ -24,9 +24,11 @@ return new class extends Migration
             $table->string('city',150)->nullable();
             $table->string('region',150)->nullable();
             $table->string('country',150)->nullable();
+            $table->timestamps();
         });
 
         DB::table('addresses')->insert([
+            'tenant_id' => 1,
             'address_type_id' => 1,
             'ordinal' => 1,
             'street' => 'Hoomboogsteenweg',

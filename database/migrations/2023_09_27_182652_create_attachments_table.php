@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('attachments', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->integer('offer_id')->nullable();
-            $table->integer('invoice_id')->nullable();
-            $table->integer('customer_id')->nullable();
-            $table->integer('subscription_id')->nullable();
+            $table->integer('tenant_id')->nullable();             
+            $table->string('context', 100)->nullable();
+            $table->integer('context_id')->nullable();
             $table->string('attachment',255)->nullable();
+            $table->timestamps();
         });
     }
 

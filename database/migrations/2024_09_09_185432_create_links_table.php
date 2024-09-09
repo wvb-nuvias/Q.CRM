@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->integer('role_id')->nullable()->change();
+        Schema::create('links', function (Blueprint $table) {
+            $table->id();
+            $table->integer('tenant_id');
+            $table->integer('link_type_id');
+            $table->string('context', 100)->nullable();
+            $table->integer('context_id')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -21,8 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->integer('role_id')->nullable(false)->change();
-        });
+        Schema::dropIfExists('links');
     }
 };

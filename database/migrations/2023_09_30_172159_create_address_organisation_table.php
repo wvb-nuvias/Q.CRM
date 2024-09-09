@@ -14,12 +14,14 @@ return new class extends Migration
     {
         Schema::create('address_organization', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('tenant_id');             
             $table->integer('organization_id')->nullable();
             $table->integer('address_id')->nullable();
+            $table->timestamps();
         });
 
         DB::table('address_organization')->insert([
+            'tenant_id' => 1,
             'organization_id' => 1,
             'address_id' => 1,
         ]);

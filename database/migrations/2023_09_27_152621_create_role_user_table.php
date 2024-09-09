@@ -14,12 +14,14 @@ return new class extends Migration
     {
         Schema::create('role_user', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('tenant_id');            
             $table->integer('user_id')->nullable();
             $table->integer('role_id')->nullable();
+            $table->timestamps();
         });
         
         DB::table('role_user')->insert([
+            'tenant_id' => 1,
             'user_id' => 1,
             'role_id' => 1,
         ]);

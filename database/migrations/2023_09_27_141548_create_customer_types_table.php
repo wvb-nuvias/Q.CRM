@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -13,8 +14,9 @@ return new class extends Migration
     {
         Schema::create('customer_types', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->string('name',100)->nullable();            
+            $table->integer('tenant_id')->nullable();            
+            $table->string('name',100)->nullable();  
+            $table->timestamps();          
         });
 
         DB::table('customer_types')->insert([

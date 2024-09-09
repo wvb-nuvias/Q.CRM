@@ -27,4 +27,20 @@ class Attachment extends Model
      * @var array
      */
     protected $fillable = ['created_at', 'updated_at', 'incident_id', 'subscription_id', 'attachment'];
+
+    public function offer(): HasOne {
+        return $this->hasOne(Offer::class);
+    }
+
+    public function customer(): HasOne {
+        return $this->hasOne(Customer::class);
+    }   
+    
+    public function invoice(): HasOne {
+        return $this->hasOne(Invoice::class);
+    }
+
+    public function subscription(): HasOne {
+        return $this->hasOne(Subscription::class);
+    }
 }

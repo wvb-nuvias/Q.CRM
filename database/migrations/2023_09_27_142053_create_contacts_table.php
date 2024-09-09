@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('tenant_id');            
             $table->integer('customer_id')->nullable();
             $table->integer('contact_type_id')->nullable();
             $table->integer('job_id')->nullable();
@@ -22,10 +22,12 @@ return new class extends Migration
             $table->string('firstname',100)->nullable(); 
             $table->string('gender',100)->nullable(); 
             $table->string('language',100)->nullable(); 
+            $table->timestamps();
         });
 
         DB::table('contacts')->insert([
             'customer_id' => 1,
+            'tenant_id' => 1,
             'contact_type_id' => 1,
             'job_id' => 1,
             'lastname' => 'Continuum',

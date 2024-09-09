@@ -14,12 +14,14 @@ return new class extends Migration
     {
         Schema::create('email_contact', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('tenant_id');              
             $table->integer('contact_id')->nullable();
             $table->integer('email_id')->nullable();
+            $table->timestamps();
         });
         
         DB::table('email_contact')->insert([
+            'tenant_id' => 1,
             'contact_id' => 1,
             'email_id' => 1,
         ]);
