@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 use App\Models\Address;
 use App\Models\Contact;
@@ -21,7 +24,7 @@ use App\Models\Phone;
  * @property int|null $number
  * @property int|null $customer_type_id
  * @property string|null $name
- * @property int|null $managedby
+ * @property int|null $managedby    //links to the organization which manages it, it will have multiple customers
 */
 class Customer extends Model
 {
