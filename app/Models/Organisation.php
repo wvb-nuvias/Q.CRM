@@ -46,9 +46,9 @@ class Organization extends Model
     /**
      * Get the users for the organization.
      */
-    public function users(): HasMany
+    public function contacts(): HasMany
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(Contact::class);
     }
 
     /**

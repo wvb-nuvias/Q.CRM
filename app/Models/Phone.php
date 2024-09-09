@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 use App\Models\Contact;
 use App\Models\Customer;
@@ -34,17 +35,25 @@ class Phone extends Model
     /**
      * Get the contact of this phone.
      */
-    public function contact(): BelongsTo
+    public function contact(): BelongsToMany
     {
-        return $this->belongsTo(Contact::class);
+        return $this->belongsToMany(Contact::class);
     }
 
     /**
      * Get the customer of this phone.
      */
-    public function customer(): BelongsTo
+    public function customer(): BelongsToMany
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsToMany(Customer::class);
+    }
+
+    /**
+     * Get the organization of this phone.
+     */
+    public function organization(): BelongsToMany
+    {
+        return $this->belongsToMany(Organization::class);
     }
 
     /**
