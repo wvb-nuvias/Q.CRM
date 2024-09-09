@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 use App\Models\Product;
-use App\Models\Incident;
 
 /**
  * Table: brands
@@ -21,6 +20,8 @@ use App\Models\Incident;
 */
 class Brand extends Model
 {
+    //TODO if model is created, get the resources for the brand (icon, smallicon, svg icon)
+
     use HasFactory;
 
     /**
@@ -36,11 +37,4 @@ class Brand extends Model
         return $this->belongsTo(Product::class);
     }
 
-    /**
-     * Get the incidents that are about this brand.
-     */
-    public function incidents(): BelongsTo
-    {
-        return $this->belongsTo(Incident::class);
-    }
 }
