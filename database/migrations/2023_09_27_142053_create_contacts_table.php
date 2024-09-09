@@ -30,6 +30,8 @@ return new class extends Migration
             'job_id' => 1,
             'lastname' => 'Continuum',
             'firstname' => 'Q',
+            'gender' => 'male',
+            'language' => 'en'
         ]);
     }
 

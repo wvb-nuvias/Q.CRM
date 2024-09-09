@@ -20,7 +20,7 @@ return new class extends Migration
         });
         
         DB::table('emails')->insert([
-            'email_type_id' => 1,
+            'email_type_id' => 2,
             'address' => 'info@qcontinuum.be',
         ]);
     }

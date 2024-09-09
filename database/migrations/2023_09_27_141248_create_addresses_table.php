@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -24,6 +25,18 @@ return new class extends Migration
             $table->string('region',150)->nullable();
             $table->string('country',150)->nullable();
         });
+
+        DB::table('addresses')->insert([
+            'address_type_id' => 1,
+            'ordinal' => 1,
+            'street' => 'Hoomboogsteenweg',
+            'number' => '12',
+            'apartment' => '1003',
+            'postal' => 2930,
+            'city' => 'Brasschaat',
+            'region' => 'Antwerp',
+            'country' => 'Belgium'
+        ]);
     }
 
     /**

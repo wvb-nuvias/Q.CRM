@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -20,8 +21,16 @@ return new class extends Migration
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
+            $table->string('theme',10);
             $table->timestamps();
         });
+
+        DB::table('users')->insert([
+            'name' => 'Q Continuum',
+            'email' => 'info@qcontinuum.be',
+            'theme' => 'dark',
+            'password' => '$2y$10$LwLqJkAQ3fp89gs4ayqc1e1LSjni.T7tn7c3nGi12gQRsEpo4s3ha',
+        ]);
     }
 
     /**
