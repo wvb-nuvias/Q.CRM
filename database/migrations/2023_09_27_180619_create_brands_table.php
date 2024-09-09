@@ -14,10 +14,16 @@ return new class extends Migration
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
-            $table->integer('tenant_id')->nullable();            
+            $table->integer('tenant_id')->nullable(); 
+            $table->string('icon',255)->nullable();
+            $table->string('smallicon',255)->nullable();
+            $table->string('svgicon',100)->nullable();            
             $table->string('name',100)->nullable();
             $table->timestamps();
         });
+
+        //TODO add defaults for Q brand (icons etc)
+        //TODO move vendors in a seperate project Q.Vendors (API and database with resources and images).
         
         DB::table('brands')->insert([
             ['name' => 'Q'],
