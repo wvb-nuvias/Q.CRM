@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -11,13 +12,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('organisation_types', function (Blueprint $table) {
+        Schema::create('organization_types', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('name',100)->nullable();        
         });
 
-        DB::table('organisation_types')->insert([
+        DB::table('organization_types')->insert([
+            ['name' => 'Tenant'],
             ['name' => 'Normal'],
             ['name' => 'Prospect'],
             ['name' => 'Reseller'],            
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('organisation_types');
+        Schema::dropIfExists('organization_types');
     }
 };

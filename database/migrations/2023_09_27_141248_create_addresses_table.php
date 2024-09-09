@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('ordinal')->nullable();
             $table->string('street',150)->nullable();
             $table->string('number',10)->nullable();
-            $table->string('appartement',10)->nullable();
+            $table->string('apartment',10)->nullable();
             $table->string('postal',10)->nullable();
             $table->string('city',150)->nullable();
             $table->string('region',150)->nullable();

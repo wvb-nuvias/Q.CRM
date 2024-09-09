@@ -62,6 +62,13 @@ class Contact extends Model
     }
 
     /**
+     * Get the user for this contact, linked by email address
+     */
+    public function user() {
+        
+    }
+
+    /**
      * Get the emails for the contact.
      */
     public function emails(): HasMany

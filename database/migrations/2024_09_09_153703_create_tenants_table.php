@@ -12,15 +12,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('email_types', function (Blueprint $table) {
+        Schema::create('tenants', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email');
+            $table->int('organization_id');
+            $table->int('contact_id');
             $table->timestamps();
-            $table->string('name',100)->nullable();
         });
 
-        DB::table('email_types')->insert([
-            ['name' => 'Home'],
-            ['name' => 'Work'],
+        DB::table('tenants')->insert([
+            'name' => 'Q Continuum',
+            'email' => 'info@qcontinuum.be',
+            'organization_id' => 1,
+            'contact_id' => 1,
         ]);
     }
 
@@ -29,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('email_types');
+        Schema::dropIfExists('tenants');
     }
 };

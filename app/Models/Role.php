@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 use App\Models\Right;
 use App\Models\User;
@@ -27,16 +28,16 @@ class Role extends Model
     /**
      * Get the rights for the role.
      */
-    public function rights(): HasMany
+    public function rights(): BelongsToMany
     {
-        return $this->hasMany(Right::class);
+        return $this->belongsToMany(Right::class);
     }
 
     /**
      * Get the users that have this role.
      */
-    public function users(): BelongsTo
+    public function users(): HasMany
     {
-        return $this->belongsTo(User::class);
+        return $this->hasMany(User::class);
     }
 }
