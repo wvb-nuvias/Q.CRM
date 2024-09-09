@@ -15,6 +15,8 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
 use App\Models\Role;
+use App\Models\Contact;
+use App\Models\Email;
 use App\Models\Organization;
 
 /**
@@ -104,7 +106,10 @@ class User extends Authenticatable
      * Get the contact of this user by email.
      */
     public function contact() {
-        
+        $emails=Email::where('address', '=', $this->email)->first();
+        if ($emails) {
+            return $emails->contact;
+        }
     }
 
     /**

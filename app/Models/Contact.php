@@ -64,8 +64,10 @@ class Contact extends Model
     /**
      * Get the user for this contact, linked by email address
      */
-    public function user() {
-        
+    public function user() {        
+        if ($this->emails->where('address', '=', $this->email)->first()) {
+            return $this->emails->where('address', '=', $this->email)->first()->user;
+        }
     }
 
     /**
