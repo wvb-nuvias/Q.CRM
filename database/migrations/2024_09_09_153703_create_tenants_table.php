@@ -20,6 +20,8 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        //TODO if email is linked to multiple tenants, then let choose tenant after logged in
+
         DB::table('tenants')->insert(
             ['name' => 'Q Continuum', 'email' => 'info@qcontinuum.be', 'user_id' => 1],
             ['name' => 'Q Continuum Demo', 'email' => 'info@qcontinuum.be', 'user_id' => 1]
