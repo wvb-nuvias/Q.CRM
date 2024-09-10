@@ -56,7 +56,7 @@ class Organization extends Model
      */
     public function organizationtype(): HasOne 
     {
-        return $this->HasOne(OrganizationType::class);
+        return $this->HasOne(QType::class)->where('context','organization');
     }
 
     /**

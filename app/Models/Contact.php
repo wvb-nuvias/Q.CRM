@@ -50,7 +50,7 @@ class Contact extends Model
      */
     public function contacttype(): HasOne 
     {
-        return $this->HasOne(ContactType::class);
+        return $this->HasOne(QType::class)->where('context','contact');
     }
 
     /**

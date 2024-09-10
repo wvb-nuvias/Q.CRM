@@ -12,8 +12,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //TODO use same idea with context and contextid for types (QType model)
-
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
             $table->integer('tenant_id')->nullable();

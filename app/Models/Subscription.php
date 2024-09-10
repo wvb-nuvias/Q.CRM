@@ -35,6 +35,6 @@ class Subscription extends Model
      */
     public function subscriptiontype(): HasOne 
     {
-        return $this->HasOne(SubscriptionType::class);
+        return $this->HasOne(QType::class)->where('context','subscription');
     }
 }

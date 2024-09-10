@@ -50,7 +50,7 @@ class Product extends Model
      */
     public function producttype(): HasOne 
     {
-        return $this->HasOne(ProductType::class);
+        return $this->HasOne(QType::class)->where('context','product');
     }
 
     /**
@@ -58,6 +58,6 @@ class Product extends Model
      */
     public function unittype(): HasOne 
     {
-        return $this->HasOne(UnitType::class);
+        return $this->HasOne(QType::class)->where('context','unit');
     }
 }

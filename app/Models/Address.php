@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-use App\Models\AddressType;
-
 /**
  * Table: addresses
 *
@@ -39,6 +37,6 @@ class Address extends Model
      */
     public function addresstype(): HasOne 
     {
-        return $this->HasOne(AddressType::class);
+        return $this->HasOne(QType::class)->where('context','address');
     }
 }

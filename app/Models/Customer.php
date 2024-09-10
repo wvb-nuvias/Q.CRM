@@ -56,7 +56,7 @@ class Customer extends Model
      */
     public function customertype(): HasOne 
     {
-        return $this->HasOne(CustomerType::class);
+        return $this->HasOne(QType::class)->where('context','customer');
     }
 
     /**

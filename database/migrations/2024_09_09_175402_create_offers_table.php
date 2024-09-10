@@ -16,9 +16,9 @@ return new class extends Migration
             $table->integer('tenant_id');
             $table->string('code', 100)->nullable();
             $table->string('description', 100)->nullable();
-            $table->int('customer_id')->nullable();
-            $table->int('organization_id')->nullable();
-            $table->int('user_id')->nullable();
+            $table->integer('customer_id')->nullable();
+            $table->integer('organization_id')->nullable();
+            $table->integer('user_id')->nullable();
             $table->timestamps();
         });
     }

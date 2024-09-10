@@ -61,6 +61,6 @@ class Phone extends Model
      */
     public function phonetype(): HasOne 
     {
-        return $this->HasOne(PhoneType::class);
+        return $this->HasOne(QType::class)->where('context','phone');
     }
 }

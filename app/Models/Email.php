@@ -36,7 +36,7 @@ class Email extends Model
      */
     public function emailtype(): HasOne 
     {
-        return $this->HasOne(EmailType::class);
+        return $this->HasOne(QType::class)->where('context','email');
     }
 
     /**
